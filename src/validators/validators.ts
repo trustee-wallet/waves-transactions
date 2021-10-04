@@ -123,6 +123,8 @@ export const isValidAddress = (address: unknown, network?: number) => {
     if (network != null && addressBytes[1] != network) {
         return false
     }
+    
+    if (addressBytes[1] == 65) return true; // ASH hack
 
     let key = addressBytes.slice(0, 22)
     let check = addressBytes.slice(22, 26)
